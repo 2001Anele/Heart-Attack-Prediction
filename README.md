@@ -1,9 +1,4 @@
-# Fuzzy Expert System For Diagnosing Heart Disease
-<p align="center">
-  <a href="https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/out2.png">
-    <img src="https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/out2.png" alt="app Image">
-  </a>
-</p>
+
 
 ------------------
 
@@ -24,20 +19,7 @@ The amount of thallium: This entry specifies the amount of thallium (a chemical 
 Finally, the output determines whether or not a person has heart disease, which is explained in more detail below.
 
 ## Step1: Fuzzification:
-To solve the problem with the help of fuzzy logic, it is necessary to convert our values from absolute to fuzzy (imprecise, relative). This step is called Fuzzification. For this purpose, fuzzy sets must be defined and according to the membership function, the degree of belonging of each value to For this purpose, the membership functions of the required sets are shown in the following figures: (for inputs such as sports activity, gender, and thallium, as explained above, because they only have crisp values, the graph is not given, but must be included in the project.)
-Age    |  Blood pressure  |  Blood sugar  |  cholesterol  |
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/age.png)  |  ![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/blood%20pressure.png)  |  ![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/blood%20sugar.png)  |  ![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/colestrol.png)
-
-Heart rate    |  ECG  |  old peak  |  output  |
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/heart%20rate.png)  |  ![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/ECG.png)  |  ![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/old%20peak.png)  |  ![](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/pics/output.png)
-
-For the simplicity of the work, the membership functions are defined linearly, and in the implementation, the equation of the lines can be obtained according to the above figures. It is obvious that the above equations are the equations of simple lines obtained by two points.
-- If 111≤x≤134 membership_function(x) = (134−𝑥)/23
-  
-Code of this section is available at this [link](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/fuzzification.py)
-
+To solve the problem with the help of fuzzy logic, it is necessary to convert our values from absolute to fuzzy (imprecise, relative). This step is called Fuzzification. 
 ## Step2: Inference
 In the next step, it is necessary to check the obtained fuzzy values in the existing rules to solve the problem. For example, consider the following rules:
 - If (age is old ) and (blood pr essure is very high) then (result is sick(s4))
@@ -65,12 +47,8 @@ As you know, in fuzzy logic, there are different methods for calculating communi
 
 High values are called the strength of each rule. In this case, rules 1 and 3 are the only activated rules. This step obtains the output which is the different degrees of the disease with different belonging values. 
 
-Code of this section is available at this [link](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/inference.py)
-
 ## Step3: Defuzzification
 At this stage, we return to the world of absolute values with the help of repeated deductions to obtain the answer in the form of an absolute value. There are different methods for dephasing, one of the most important and widely used of which is the center of mass method. Please note that in some cases, more than 2 rules may be activated and they may belong to several sets of values. In these cases, we must combine the obtained answers. For this, we OR all the answers together, or in other words, we get the output of all the rules. After combining the answers of all the rules, we get the center of mass of the resulting figure. 
-
-Code of this section is available at this [link](https://github.com/Mahdi-Rahmani/Fuzzy-expert-system-for-diagnosing-heart-disease/blob/main/defuzzification.py)
 
 ## How to use?
 - To install the requirements and used libraries, first enter the main directory and then install the requirements using the following command.
